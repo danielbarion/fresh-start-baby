@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" ng-app="crudApp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>Crud App</title>
+
+    <style>
+      :root {
+        --primary-color: rgb(150, 156, 250);
+        --on-primary-color: rgb(255, 255, 255);
+      }
+
+      body {
+        position: relative;
+        min-height: 100vh;
+        padding: 0;
+        margin: 0;
+        font-family: sans-serif, Arial, Helvetica;
+      }
+    </style>
+  </head>
+  <body>
+    <crud-app unresolved></crud-app>
+
+    <script type="module" src="<%= appBundle %>"></script>
+  </body>
+</html>

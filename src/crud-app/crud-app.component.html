@@ -1,0 +1,14 @@
+<header id="crud-app-header">
+  <span>Crud App</span>
+</header>
+
+<section id="crud-app-content">
+  <crud-card ng-repeat="card in $ctrl.crudList"
+    title="card.title"
+    description="card.description"
+  ></crud-card>
+
+  <div class="fab-button" ng-click="$ctrl.createItem()">
+    <span>+</span>
+  </div>
+</section>

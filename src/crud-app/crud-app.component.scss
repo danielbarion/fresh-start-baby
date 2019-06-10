@@ -1,0 +1,65 @@
+crud-app {
+  display: grid;
+  grid-template-rows: 64px auto;
+  grid-template-columns: auto;
+  grid-template-areas:
+    "crud-app-header"
+    "crud-app-content";
+  min-height: 100vh;
+  width: 100vw;
+
+  #crud-app-header {
+    grid-area: crud-app-header;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 64px;
+    padding: 0 16px;
+    font-size: 24px;
+    color: var(--on-primary-color);
+    background-color: var(--primary-color);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .33);
+  }
+
+  #crud-app-content {
+    grid-area: crud-app-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    crud-card {
+      margin: 0 16px 16px;
+
+      &:first-child {
+        margin: 16px;
+      }
+    }
+
+    .fab-button {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      color: var(--on-primary-color);
+      background-color: var(--primary-color);
+      box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, .33);
+
+      span {
+        text-align: center;
+        font-size: 24px;
+      }
+    }
+  }
+}
