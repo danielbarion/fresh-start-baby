@@ -1,0 +1,11 @@
+/node_modules
+/coverage
+/assets
+/demo
+/dist
+
+index.html
+downloads.html
+unsupported.html
+angular-notify.html
+email-informacoes.html
