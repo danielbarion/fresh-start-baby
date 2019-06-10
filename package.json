@@ -4,13 +4,15 @@
   "description": "Web application",
   "main": "index.html",
   "scripts": {
-    "start": "rm -rf dist && mkdir dist && node --max_old_space_size=2048 ./node_modules/rollup/bin/rollup -c rollup.config.dev.js --watch",
+    "start": "npm run clear:dist && node --max_old_space_size=2048 ./node_modules/rollup/bin/rollup -c rollup.config.dev.js --watch",
+    "build": "npm run clear:dist && node --max_old_space_size=2048 ./node_modules/rollup/bin/rollup -c rollup.config.prod.js",
     "lint": "npm run lint:eslint && npm run lint:prettier",
     "format": "npm run format:eslint && npm run format:prettier",
+    "clear:dist": "rm -rf dist && mkdir dist",
     "lint:eslint": "eslint --ext .js,.html .",
     "format:eslint": "eslint --ext .js,.html . --fix",
     "lint:prettier": "prettier '**/*.js' --list-different || (echo '↑↑ these files are not prettier formatted ↑↑' && exit 1)",
-    "format:prettier": "prettier '**/*.js' --write",
+    "format:prettier": "prettier '**/*.js' --write"
   },
   "lint-staged": {
     "*.js": [
@@ -58,6 +60,6 @@
     "angular-resource": "^1.7.4",
     "angular-sanitize": "^1.7.4",
     "ng-redux": "^4.1.0-alpha",
-    "redux": "^4.0.0",
+    "redux": "^4.0.0"
   }
 }
