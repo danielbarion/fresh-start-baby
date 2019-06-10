@@ -4,7 +4,7 @@
   "description": "Web application",
   "main": "index.html",
   "scripts": {
-    "start": "rm -rf dist && mkdir dist && node --max_old_space_size=2048 ./node_modules/rollup/bin/rollup -c rollup.config.start.js --watch",
+    "start": "rm -rf dist && mkdir dist && node --max_old_space_size=2048 ./node_modules/rollup/bin/rollup -c rollup.config.dev.js --watch",
     "lint": "npm run lint:eslint && npm run lint:prettier",
     "format": "npm run format:eslint && npm run format:prettier",
     "lint:eslint": "eslint --ext .js,.html .",
