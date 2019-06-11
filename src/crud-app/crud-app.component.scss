@@ -34,6 +34,7 @@ crud-app {
     justify-content: flex-start;
 
     crud-card {
+      width: calc(100vw - 64px);
       margin: 0 16px 16px;
 
       &:first-child {

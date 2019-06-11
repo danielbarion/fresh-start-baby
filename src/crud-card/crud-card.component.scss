@@ -1,0 +1,32 @@
+crud-card {
+  display: grid;
+  grid-gap: 16px;
+  grid-template-rows: 48px minmax(64px, auto);
+  grid-template-columns: auto;
+  grid-template-areas:
+    "crud-card-title"
+    "crud-card-description";
+  padding: 16px;
+  border-radius: 4px;
+  background-color: rgb(255, 255, 255);
+  box-shadow:  0 4px 4px 0 rgba(0, 0, 0, 0.33);
+
+  .crud-card-title {
+    grid-area: crud-card-title;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding-bottom: 16px;
+    border-bottom: solid 1px rgb(225, 225, 225);
+    font-size: 32px;
+  }
+
+  .crud-card-description {
+    grid-area: crud-card-description;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}

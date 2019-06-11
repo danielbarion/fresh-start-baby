@@ -1,0 +1,18 @@
+<div class="crud-form-title">
+  <input placeholder="Titulo" ng-model="$ctrl.title" />
+</div>
+
+<div class="crud-form-description">
+  <textarea placeholder="Descrição" ng-model="$ctrl.description"></textarea>
+</div>
+
+<div class="crud-form-actions">
+  <button class="crud-form-actions-cancel"
+    ng-click="$ctrl.cancel()">
+    Cancelar
+  </button>
+  <button class="crud-form-actions-confirm"
+    ng-click="$ctrl.confirm()">
+    Adicionar
+  </button>
+</div>

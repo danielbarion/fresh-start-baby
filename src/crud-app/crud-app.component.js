@@ -21,7 +21,11 @@ class CrudAppController {
   }
 
   createItem() {
-    console.log('Create Item');
+    this.$.querySelector('crud-form').toggle();
+  }
+
+  addItem(title, description) {
+    this.crudList = this.crudList.concat({ title, description });
   }
 }
 
