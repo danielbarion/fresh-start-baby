@@ -22,8 +22,11 @@ class CrudFormController {
   toggle() {
     this.open = !this.open;
 
-    if (this.open) this.$.setAttribute('open', '');
-    else this.$.removeAttribute('open');
+    if (this.open) {
+      this.$.setAttribute('open', '');
+
+      setTimeout(() => this.$.querySelector('#title').focus(), 700);
+    } else this.$.removeAttribute('open');
   }
 
   clean() {

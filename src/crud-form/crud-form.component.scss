@@ -28,6 +28,54 @@ crud-form {
     transform: translateX(calc(50vw - 50%)) translateY(calc(50vh - 50%));
   }
 
+  .field {
+    display: grid;
+    padding-bottom: 18px;
+    padding-top: 30px;
+    height: 30px;
+    position: relative;
+    width: 100%;
+
+    label {
+      color: #A8A8A8;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      position: absolute;
+      bottom: 25px;
+      transition: 200ms ease;
+    }
+
+    input {
+      color: rgb(156, 156, 156);
+      font-size: 15px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+      line-height: 30px;
+      opacity: 0.5;
+      border-bottom: 2px #E0E0E0 solid;
+      transition: 200ms ease;
+      border-top: 0;
+      border-left: 0;
+      border-right: 0;
+      background: transparent;
+
+      &:focus {
+        outline: none;
+        opacity: 1;
+        border-bottom: 2px var(--primary-color) solid;
+
+        + label {
+          bottom: 50px;
+        }
+      }
+
+      &[hasvalue=true] + label {
+        bottom: 50px;
+      }
+    }
+  }
+
   .crud-form-title {
     grid-area: crud-form-title;
     display: flex;
@@ -35,7 +83,6 @@ crud-form {
     align-items: center;
     justify-content: flex-start;
     padding-bottom: 16px;
-    border-bottom: solid 1px rgb(225, 225, 225);
     font-size: 32px;
   }
 
