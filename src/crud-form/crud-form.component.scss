@@ -1,149 +1,155 @@
 crud-form {
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: grid;
-  grid-gap: 16px;
-  grid-template-rows: 48px minmax(64px, auto) 32px;
-  grid-template-columns: auto;
-  grid-template-areas:
-    "crud-form-title"
-    "crud-form-description"
-    "crud-form-actions";
-  width: 80vw;
-  max-width: 425px;
-  padding: 16px;
-  border-radius: 4px;
-  background-color: rgb(255, 255, 255);
-  box-shadow:  0 4px 4px 0 rgba(0, 0, 0, 0.33);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateX(calc(50vw - 50%)) translateY(100vh);
-  transition: all ease-in-out 0.3s;
-  will-change: opacity, visibility, transform, transition;
-  z-index: 2;
+  display: block;
 
   &[open] {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(calc(50vw - 50%)) translateY(calc(50vh - 50%));
+    .crud-form-popup {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(calc(50vw - 50%)) translateY(calc(50vh - 50%));
+    }
   }
 
-  .field {
+  .crud-form-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
     display: grid;
-    padding-bottom: 18px;
-    padding-top: 30px;
-    height: 30px;
-    position: relative;
-    width: 100%;
+    grid-gap: 16px;
+    grid-template-rows: 48px minmax(64px, auto) 32px;
+    grid-template-columns: auto;
+    grid-template-areas:
+      "crud-form-title"
+      "crud-form-description"
+      "crud-form-actions";
+    width: 80vw;
+    max-width: 425px;
+    padding: 16px;
+    border-radius: 4px;
+    background-color: rgb(255, 255, 255);
+    box-shadow:  0 4px 4px 0 rgba(0, 0, 0, 0.33);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(calc(50vw - 50%)) translateY(100vh);
+    transition: all ease-in-out 0.3s;
+    will-change: opacity, visibility, transform, transition;
+    z-index: 2;
 
-    textarea {
-      border: none;
-      border-bottom: 2px #E0E0E0 solid;
-      letter-spacing: 0.5px;
-      line-height: 30px;
-      opacity: 0.5;
+    .field {
+      display: grid;
+      padding-bottom: 18px;
+      padding-top: 30px;
+      height: 30px;
+      position: relative;
+      width: 100%;
 
-      &:focus {
-        outline: none;
-        opacity: 1;
-        border-bottom: 2px var(--primary-color) solid;
+      textarea {
+        border: none;
+        border-bottom: 2px #E0E0E0 solid;
+        letter-spacing: 0.5px;
+        line-height: 30px;
+        opacity: 0.5;
 
-        + label {
+        &:focus {
+          outline: none;
+          opacity: 1;
+          border-bottom: 2px var(--primary-color) solid;
+
+          + label {
+            bottom: 50px;
+          }
+        }
+
+        &[hasvalue=true] + label {
           bottom: 50px;
         }
       }
 
-      &[hasvalue=true] + label {
-        bottom: 50px;
+      label {
+        color: #A8A8A8;
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        position: absolute;
+        bottom: 25px;
+        transition: 200ms ease;
       }
-    }
 
-    label {
-      color: #A8A8A8;
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-      position: absolute;
-      bottom: 25px;
-      transition: 200ms ease;
-    }
+      input {
+        color: rgb(156, 156, 156);
+        font-size: 15px;
+        letter-spacing: 0.5px;
+        line-height: 30px;
+        opacity: 0.5;
+        border-bottom: 2px #E0E0E0 solid;
+        transition: 200ms ease;
+        border-top: 0;
+        border-left: 0;
+        border-right: 0;
+        background: transparent;
 
-    input {
-      color: rgb(156, 156, 156);
-      font-size: 15px;
-      letter-spacing: 0.5px;
-      line-height: 30px;
-      opacity: 0.5;
-      border-bottom: 2px #E0E0E0 solid;
-      transition: 200ms ease;
-      border-top: 0;
-      border-left: 0;
-      border-right: 0;
-      background: transparent;
+        &:focus {
+          outline: none;
+          opacity: 1;
+          border-bottom: 2px var(--primary-color) solid;
 
-      &:focus {
-        outline: none;
-        opacity: 1;
-        border-bottom: 2px var(--primary-color) solid;
+          + label {
+            bottom: 50px;
+          }
+        }
 
-        + label {
+        &[hasvalue=true] + label {
           bottom: 50px;
         }
       }
+    }
 
-      &[hasvalue=true] + label {
-        bottom: 50px;
-      }
+    .crud-form-title {
+      grid-area: crud-form-title;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      padding-bottom: 16px;
+      font-size: 32px;
+    }
+
+    .crud-form-description {
+      grid-area: crud-form-description;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+
+    .crud-form-actions {
+      grid-area: crud-form-actions;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+
+      .crud-form-actions-cancel {}
+
+      .crud-form-actions-confirm {}
     }
   }
 
-  .crud-form-title {
-    grid-area: crud-form-title;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    padding-bottom: 16px;
-    font-size: 32px;
-  }
+  .overlay {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .33);
+    opacity: 0;
+    visibility: hidden;
+    transition: all ease-in-out 0.3s;
+    will-change: opacity, visibility, transition;
+    left: 0;
+    top: 0;
+    z-index: 1;
 
-  .crud-form-description {
-    grid-area: crud-form-description;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-  }
-
-  .crud-form-actions {
-    grid-area: crud-form-actions;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-
-    .crud-form-actions-cancel {}
-
-    .crud-form-actions-confirm {}
-  }
-}
-
-.overlay {
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.66);
-  opacity: 0;
-  visibility: hidden;
-  transition: all ease-in-out 0.3s;
-  will-change: opacity, visibility, transition;
-  left: -6vw;
-  top: -32vh;
-  z-index: 1;
-
-  &[open] {
-    opacity: 1;
-    visibility: visible;
+    &[open] {
+      opacity: 1;
+      visibility: visible;
+    }
   }
 }
