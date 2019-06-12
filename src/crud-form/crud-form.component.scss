@@ -21,6 +21,7 @@ crud-form {
   transform: translateX(calc(50vw - 50%)) translateY(100vh);
   transition: all ease-in-out 0.3s;
   will-change: opacity, visibility, transform, transition;
+  z-index: 2;
 
   &[open] {
     opacity: 1;
@@ -128,18 +129,21 @@ crud-form {
   }
 }
 
-// .overlay {
-//   position: absolute;
-//   width: 100vw;
-//   height: 100vh;
-//   background-color: rgba(0, 0, 0, 0.66);
-//   opacity: 0;
-//   visibility: hidden;
-//   transition: all ease-in-out 0.3s;
-//   will-change: opacity, visibility, transition;
+.overlay {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.66);
+  opacity: 0;
+  visibility: hidden;
+  transition: all ease-in-out 0.3s;
+  will-change: opacity, visibility, transition;
+  left: -6vw;
+  top: -32vh;
+  z-index: 1;
 
-//   &[open] {
-//     opacity: 1;
-//     visibility: visible;
-//   }
-// }
+  &[open] {
+    opacity: 1;
+    visibility: visible;
+  }
+}
