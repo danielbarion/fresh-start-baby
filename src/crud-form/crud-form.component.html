@@ -1,3 +1,5 @@
+<div class="overlay"></div>
+
 <div class="crud-form-title">
   <div class="field">
     <input id="title" ng-model="$ctrl.title" />
@@ -6,7 +8,10 @@
 </div>
 
 <div class="crud-form-description">
-  <textarea placeholder="Descrição" ng-model="$ctrl.description"></textarea>
+    <div class="field">
+      <textarea id="title" ng-model="$ctrl.description" rows="3"></textarea>
+      <label for="title">Descrição</label>
+    </div>
 </div>
 
 <div class="crud-form-actions">

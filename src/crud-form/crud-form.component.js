@@ -20,13 +20,19 @@ class CrudFormController {
   }
 
   toggle() {
+    const overlay = this.$.querySelector('.overlay');
+
     this.open = !this.open;
 
     if (this.open) {
       this.$.setAttribute('open', '');
+      overlay.setAttribute('open', '');
 
       setTimeout(() => this.$.querySelector('#title').focus(), 700);
-    } else this.$.removeAttribute('open');
+    } else {
+      this.$.removeAttribute('open');
+      overlay.removeAttribute('open');
+    }
   }
 
   clean() {
